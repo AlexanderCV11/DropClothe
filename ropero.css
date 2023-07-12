@@ -1,0 +1,24 @@
+button {
+    display: block;
+    margin: 0 auto;
+}
+
+#tareas {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #tareas > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  #tareas select {
+    flex-grow: 1;
+    margin-right: 10px;
+  }

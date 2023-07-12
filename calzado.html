@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropClothes</title> 
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #navbar {
+            background-color: #f1f1f1;
+            padding: 10px;
+        }
+
+        #imageContainer {
+            text-align: center;
+            width: 100%;
+            height: 25vh;
+        }
+
+        #myImage {
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        #listContainer {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function showSelections() {
+            var list2 = document.getElementById("list2");
+            var list3 = document.getElementById("list3");
+
+            var selected2 = list2.options[list2.selectedIndex].text;
+            var selected3 = list3.options[list3.selectedIndex].text;
+
+            alert("Selección 2: " + selected2 + "\nSelección 3: " + selected3);
+        }
+    </script>
+</head>
+<body>
+
+<div id="navbar">
+    <div class="content">
+        <div class="menu container">
+            
+            <a href="#" class="logo">logo</a>
+            <input type="checkbox" id="menu" />
+            <label for="menu">
+                <img src="images/menu.png" class="menu-icono" alt="">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="ropero.html">Ropero</a></li>
+                    <li><a href="personal.html">Personal </a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
+
+<div id="imageContainer">
+    <img id="myImage" src="images/Tenis.jpg" alt="Imagen">
+</div>
+
+<div id="listContainer">
+
+    <select id="list2">
+        <option value="optionA">Vestir</option>
+        <option value="optionB">Casual</option>
+        <option value="optionC">Deportivo</option>
+        <option value="optionD">Botas</option>
+        <option value="optionE">Mocasines</option>
+    </select>
+
+    <br><br>
+
+    <select id="list3">
+      <option value="optionA">Blanco</option>
+      <option value="optionB">Negro</option>
+      <option value="optionC">Azul</option>
+      <option value="optionD">Rojo</option>
+  </select>
+
+  <br><br>
+  
+  <button onclick="showSelections()">Guardar</button>
+  
+</div>
+</body>
+</html>
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropClothes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ropero.css">
+</head>
+
+<body>
+    <header>
+        <div class="content">
+            <div class="menu container">
+                <a href="#" class="logo">logo</a>
+                <input type="checkbox" id="menu" />
+                <label for="menu">
+                    <img src="images/menu.png" class="menu-icono" alt="">
+                </label>
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="ropero.html">Ropero</a></li>
+                        <li><a href="personal.html">Personal </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <button onclick="crearTarea()">Nueva prenda</button>
+
+    <div id="tareas"></div>
+
+    <script>
+        var tareas = [];
+
+        function crearTarea() {
+            var select = document.createElement("select");
+            select.innerHTML = `
+                <option value="">Selecciona una opción</option>
+                <option value="camiseta">Camiseta</option>
+                <option value="pantalon">Pantalón</option>
+                <option value="zapatos">Zapatos</option>
+            `;
+
+            var botonGuardar = document.createElement("button");
+            botonGuardar.textContent = "Editar";
+            botonGuardar.onclick = function () {
+                var opcionSeleccionada = select.value;
+
+                if (opcionSeleccionada === "") {
+                    alert("Por favor, selecciona una opción válida.");
+                } else {
+                    var urlDestino = ""; // Inserta la URL de la página a la que deseas redirigir
+                    if (opcionSeleccionada === "camiseta") {
+                        urlDestino = "superior.html";
+                    } else if (opcionSeleccionada === "pantalon") {
+                        urlDestino = "inferior.html";
+                    } else if (opcionSeleccionada === "zapatos") {
+                        urlDestino = "calzado.html";
+                    }
+
+                    if (urlDestino !== "") {
+                        window.location.href = urlDestino;
+                    }
+                }
+            };
+
+            var tarea = document.createElement("div");
+            tarea.appendChild(select);
+            tarea.appendChild(botonGuardar);
+
+            tareas.push(tarea);
+
+            actualizarTareas();
+        }
+
+        function actualizarTareas() {
+            var tareasContainer = document.getElementById("tareas");
+            tareasContainer.innerHTML = "";
+
+            tareas.forEach(function (tarea) {
+                tareasContainer.appendChild(tarea);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
+
+       
